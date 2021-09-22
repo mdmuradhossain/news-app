@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { NewsResponse } from './news.response';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +25,7 @@ export class NewsService {
     //   },
     // });
     // return this.http.get(this.url);
-    return this.http.get(
+    return this.http.get<NewsResponse>(
       'https://newsapi.org/v2/everything?' +
         'q=Apple&' +
         'sortBy=popularity&' +
